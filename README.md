@@ -54,7 +54,5 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 ## License
 This project is licensed under the [MIT License](LICENSE).
 
-=======
-# project-crm
+## project-crm
 This is a CRM Project
->>>>>>> 4406fca (Initial commit)
