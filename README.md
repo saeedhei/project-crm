@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-# Project Name: Hyrance
+# Project Name: CRM
 
 ## Description
-Hyrance is a demo project consisting of a frontend, backend, and MongoDB database, all packaged and deployed using Docker containers. This guide will walk you through setting up and using the Hyrance project for your development or testing purposes.
+CRM is a demo project consisting of a frontend, backend, and MongoDB database, all packaged and deployed using Docker containers. This guide will walk you through setting up and using the CRM project for your development or testing purposes.
 
 ## Prerequisites
 - Docker installed on your system ([Install Docker](https://docs.docker.com/get-docker/))
@@ -11,8 +10,8 @@ Hyrance is a demo project consisting of a frontend, backend, and MongoDB databas
 
 ### 1. Clone the Repository
 
-git clone https://github.com/saeedhei/hyrance.git
-cd Hyrance
+git clone https://github.com/saeedhei/project-crm.git
+cd CRM
 
 ### 2. Start Docker Containers
 docker-compose up
@@ -33,7 +32,7 @@ To stop the running containers, use `Ctrl + C` in the terminal where Docker Comp
 ## Directory Structure
 
 ```bash
-Hyrance/
+CRM/
 ├── backend/                  # Backend application files
 │   ├── Dockerfile            # Dockerfile for backend
 │   └── ...                   
