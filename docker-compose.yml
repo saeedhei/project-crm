@@ -1,0 +1,71 @@
+version: "3.8"  
+
+services:
+  crm-backend:
+    container_name: backend
+    image: crm-backend
+    build: ./backend  
+    ports:
+      - "5000:3000"  
+    volumes:
+      - ./backend:/express-docker
+    networks:
+      - neto       
+    depends_on:
+      - crm-mongo 
+
+  crm-mongo:
+    container_name: mongodb
+    image: mongo:latest
+    # build: ./mongodb
+    ports:
+      - "27017:27017"
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+    #   MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    #   MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}   
+    # command: mongod --auth --bind_ip_all 
+    command: mongod  
+    volumes:
+      - mongo-data:/data/db
+      - ./mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    networks:
+      - neto  
+
+  crm-frontend:
+    container_name: frontend
+    image: crm-frontend
+    build:   
+      context: ./frontend  
+    ports:
+      - "8080:80" 
+    depends_on:
+      - crm-mongo  
+      - crm-backend             
+
+volumes:
+  mongo-data:
+
+networks:
+  neto:
+    driver: bridge
+# networks:
+#   neto:
+#     external: true
+
+# docker-compose up 
+# docker network ls
+# docker network rm neto
+# docker network create neto
+
+# docker exec -it mongodb mongosh    
+
+# docker exec -it mongodb bash
+# mongosh admin -u admin --authenticationDatabase admin -p
+# docker stop mongodb
+# docker rm mongodb
+# db.users.find()
+# db.users.find().pretty()
+
+
+   

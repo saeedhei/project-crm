@@ -1,0 +1,27 @@
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/saeedhei/project-crm.git
+git checkout -b main
+git pull --rebase origin main     
+git push -f origin main
+
+git add .
+git commit -m "text updated3"
+git push -u origin main
+
+git fetch origin main
+git rebase origin/main --continue
+git push origin/main
+
+
+
+
+
+git remote -v
+
+git reset --hard HEAD@{1}
+git log
+git status
+
+rm .git/index.lock
