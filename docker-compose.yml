@@ -37,8 +37,12 @@ services:
     image: crm-frontend
     build:   
       context: ./frontend  
+      # args:
+      #   CACHEBUST: $(date +%s)      
     ports:
       - "8080:80" 
+    volumes:
+      - ./frontend/dist:/app    
     depends_on:
       - crm-mongo  
       - crm-backend             
@@ -53,7 +57,11 @@ networks:
 #   neto:
 #     external: true
 
+
+# cd frontend; npm run build; cd ..
 # docker-compose up 
+# docker-compose build --no-cache
+
 # docker network ls
 # docker network rm neto
 # docker network create neto

@@ -5,6 +5,6 @@
 <template>
   <main>
     <!-- <TheWelcome /> -->
-    <div class="bg-purple-500">httttttt</div>
+    <div class="bg-purple-500">Project2</div>
   </main>
 </template>

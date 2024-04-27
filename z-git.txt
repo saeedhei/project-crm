@@ -6,7 +6,7 @@ git checkout -b main
 git push -u origin main
 
 git add .
-git commit -m "Stack Added"
+git commit -m "readme"
 git push -u origin main
 
 git remote -v

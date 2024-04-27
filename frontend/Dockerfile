@@ -2,13 +2,16 @@ FROM node:20.9.0-alpine3.18 AS builder
 WORKDIR /app
 COPY package.json ./
 RUN npm install
-COPY . .
+# COPY . .
+COPY ./ .
 RUN npm run build
 
 
 FROM nginx:stable-alpine AS runtime
-# COPY nginx.conf /etc/nginx/conf.d/nginx.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY ./nginx/default.conf /etc/nginx/conf.d
+# COPY --from=builder /app/dist /usr/share/nginx/html
+RUN mkdir /app 
+COPY --from=builder /app/dist /app
 
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
