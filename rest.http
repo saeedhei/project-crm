@@ -1,0 +1,46 @@
+# GET http://localhost:3000/api/users HTTP/1.1
+# GET http://localhost:3000/api/users/published HTTP/1.1
+# GET http://localhost:3000/api/users/count HTTP/1.1
+
+
+# POST http://localhost:3000/api/users HTTP/1.1
+# content-type: application/json
+
+# {
+#     "email": "a@gmail.com",
+#     "password": "a",
+#     "username": "a"
+# }
+
+
+# POST http://localhost:3000/api/users/many HTTP/1.1
+# content-type: application/json
+
+# [{
+#     "email": "test@gmail.com",
+#     "password": "$2b$10$iFjIxy0HkUuRQyapjTJs/unSo2r7VNJwGglBOMaVPv14h9EvJucmO"
+# },{
+#     "email": "test2@gmail.com",
+#     "password": "$2b$10$iFjIxy0HkUuRQyapjTJs/unSo2r7VNJwGglBOMaVPv14h9EvJucmO"
+# }]
+
+
+
+# PUT https://seointro.de/api/tutorials/64a493d8be5eeb62f975483e HTTP/1.1
+# content-type: application/json
+
+# {
+#     "de": {
+#         "vcontent": "test"
+#     }
+# }
+
+
+
+
+
+# DELETE http://localhost:3000/api/users HTTP/1.1
+# DELETE http://localhost:3000/api/users/662cc40cf7ce943d47cead4a HTTP/1.1
+
+
+

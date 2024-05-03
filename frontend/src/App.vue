@@ -1,6 +1,28 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-// import HelloWorld from './components/HelloWorld.vue'
+import { useAuthStore } from './stores/auth'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+
+async function handleTokenAndRedirect(token: string | null) {
+  const authStore = useAuthStore()
+  if (token === null) {
+    router.push('/login')
+    return
+  }
+  await authStore.setToken(token)
+
+  if (!authStore.isAuthenticated) {
+    router.push('/login')
+  } else {
+    router.push('/account')
+  }
+}
+
+const token = localStorage.getItem('jwt_token')
+if (token) {
+  handleTokenAndRedirect(token)
+}
 </script>
 
 <template>
